@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="be.feastord.feastord.frontend.controller.ReservationControllerFX"
+      spacing="12" alignment="CENTER" style="-fx-padding: 25;">
+
+    <Label text="Réservation d'un menu"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Label text="ID du menu :" />
+        <TextField fx:id="menuIdField" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Nom du client :" />
+        <TextField fx:id="nomClientField" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Nombre de personnes :" />
+        <TextField fx:id="nombreClientField" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Commentaire :" />
+        <TextField fx:id="commentaireField" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Date (yyyy-MM-dd HH:mm) :" />
+        <TextField fx:id="dateField" prefWidth="200"/>
+    </HBox>
+
+    <Button text="Réserver" prefWidth="180"
+            onAction="#onReservationClick"
+            style="-fx-font-size: 16; -fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+
+    <Label fx:id="resultLabel" text=""
+           style="-fx-text-fill: #333; -fx-font-size: 14px;"/>
+</VBox>
