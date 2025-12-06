@@ -12,4 +12,7 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     private TypeRole role;
+    public Role(TypeRole client) {
+       
+    }
 }

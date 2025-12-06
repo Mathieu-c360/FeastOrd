@@ -1,3 +1,15 @@
 spring:
-  application:
-    name: FeastOrd
+
+  datasource:
+
+    url: jdbc:postgresql://localhost:5432/FeastOrd_db
+    # Nom d'utilisateur et mot de passe de la base de données
+    username: anonyme
+    password: anonyme
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true

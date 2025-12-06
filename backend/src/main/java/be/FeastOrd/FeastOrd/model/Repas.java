@@ -8,6 +8,7 @@ public class Repas{
     private String nom;
     private double prix;
 
+
     @Enumerated(EnumType.STRING)
     private TypeRepas type;
 }
