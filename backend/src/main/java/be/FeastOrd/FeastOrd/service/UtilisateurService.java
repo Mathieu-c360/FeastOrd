@@ -28,8 +28,8 @@ public class UtilisateurService {
         Optional<Role> roleOpt = roleRepository.findByRole(typeRole);
         if (!roleOpt.isPresent()) {
             throw new RuntimeException("Rôle non trouvé en base de données : " + typeRole);
-        }
-        nouvelUtilisateur.addRole(roleOpt.get());
+        }      
+        nouvelUtilisateur.setRole(roleOpt.get());
         return utilisateurRepository.save(nouvelUtilisateur);
     }
     

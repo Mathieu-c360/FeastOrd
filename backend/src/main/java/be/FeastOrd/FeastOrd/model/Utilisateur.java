@@ -1,7 +1,5 @@
 package be.FeastOrd.FeastOrd.model;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import jakarta.persistence.*;
 @Entity //pour représenter une table en bd
@@ -13,13 +11,9 @@ public class Utilisateur{
     private String prenom;
     private String mail;
     private String motDePasse;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "utilisateur_role", 
-        joinColumns = @JoinColumn(name = "utilisateur_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles = new HashSet<>();
+    @ManyToOne 
+    @JoinColumn(name = "role_id", nullable = false) // Clé étrangère vers la table Role
+    private Role role; // Un seul objet Role
     public Utilisateur(){}
     public Utilisateur(String nom,String prenom,String mail,String motDePasse)
     {
@@ -27,6 +21,13 @@ public class Utilisateur{
         this.prenom=prenom;
         this.mail=mail;
         this.motDePasse=motDePasse;
+    }
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
     public String getNom()
     {
@@ -43,8 +44,5 @@ public class Utilisateur{
     public String getMotDePasse()
     {
         return motDePasse;
-    }
-    public void addRole(Role role) {
-        this.roles.add(role);
     }
 }
