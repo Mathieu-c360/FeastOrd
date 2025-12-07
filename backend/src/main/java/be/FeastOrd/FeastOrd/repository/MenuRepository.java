@@ -1,9 +1,11 @@
 package be.FeastOrd.FeastOrd.repository;
 
+import be.FeastOrd.FeastOrd.model.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import be.FeastOrd.FeastOrd.model.Menu;
+import java.util.List;
 
 public interface MenuRepository extends JpaRepository<Menu, Integer> {
-    // Vous pouvez ajouter des méthodes de recherche personnalisées ici si besoin
+    // Récupérer tous les menus d'un restaurant
+    List<Menu> findByRestaurantId(Integer restaurantId);
 }
