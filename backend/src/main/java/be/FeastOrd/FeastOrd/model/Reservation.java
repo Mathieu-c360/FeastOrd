@@ -16,7 +16,9 @@ public class Reservation{
 
     private int nombreClient;
 
-    private String nomClient;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Utilisateur client;
 
     @ManyToOne
     private Menu menuClient;

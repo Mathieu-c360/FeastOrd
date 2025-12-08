@@ -10,4 +10,6 @@ public class Utilisateur{
     private String prenom;
     private String mail;
     private String motDePasse;
+    @Enumerated(EnumType.STRING)
+    private TypeRole role;
 }
