@@ -65,12 +65,11 @@ public class MenuService {
                 repasRepository.findById(menuRequest.getDessertId())
                         .orElseThrow(() -> new ResourceNotFoundException("Le dessert avec l'ID " + menuRequest.getDessertId() + " n'existe pas.")) : null;
 
-        Menu menu = Menu.builder()
-                .restaurant(restaurant)
-                .entree(entree)
-                .repas(repas)
-                .dessert(dessert)
-                .build();
+        Menu menu = new Menu();
+        menu.setRestaurant(restaurant);
+        menu.setEntree(entree);
+        menu.setRepas(repas);
+        menu.setDessert(dessert);
 
         return menuRepository.save(menu);
     }
