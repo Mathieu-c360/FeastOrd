@@ -1,6 +1,8 @@
-package be.FeastOrd.FeastOrd.dto;
+package be.FeastOrd.FeastOrd.model;
 
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,5 +15,7 @@ public class ReservationRequest {
     private String nomClient;
     private int nombreClient;
     private String commentaire;
+    @Enumerated(EnumType.STRING)
+    private EtatReservation etat;
 
 }

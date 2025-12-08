@@ -19,8 +19,8 @@ public class MenuService {
     }
 
     // Récupérer un menu par son ID
-    public Optional<Menu> findMenuById(Integer id) {
-        return menuRepository.findById(id);
+    public Menu findMenuById(Integer id) {
+        return menuRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Menu pas trouvé."));
     }
 
     // Enregistrer ou mettre à jour un menu
