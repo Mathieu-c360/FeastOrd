@@ -1,6 +1,9 @@
 package be.FeastOrd.FeastOrd.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
 @Entity //pour représenter une table en bd
 public class Utilisateur{
     @Id
@@ -12,4 +15,5 @@ public class Utilisateur{
     private String motDePasse;
     @Enumerated(EnumType.STRING)
     private TypeRole role;
+
 }

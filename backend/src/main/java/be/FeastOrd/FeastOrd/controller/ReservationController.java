@@ -2,8 +2,7 @@ package be.FeastOrd.FeastOrd.controller;
 
 
 import be.FeastOrd.FeastOrd.model.Reservation;
-import be.FeastOrd.FeastOrd.model.ReservationDto;
-import be.FeastOrd.FeastOrd.model.Utilisateur;
+import be.FeastOrd.FeastOrd.dto.ReservationDto;
 import be.FeastOrd.FeastOrd.service.ReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

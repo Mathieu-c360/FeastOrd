@@ -1,5 +1,6 @@
-package be.FeastOrd.FeastOrd.model;
+package be.FeastOrd.FeastOrd.dto;
 
+import be.FeastOrd.FeastOrd.model.EtatReservation;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;

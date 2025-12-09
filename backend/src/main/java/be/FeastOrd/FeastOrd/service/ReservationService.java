@@ -1,5 +1,6 @@
 package be.FeastOrd.FeastOrd.service;
 
+import be.FeastOrd.FeastOrd.dto.ReservationDto;
 import be.FeastOrd.FeastOrd.model.*;
 import be.FeastOrd.FeastOrd.repository.MenuRepository;
 import be.FeastOrd.FeastOrd.repository.ReservationRepository;
@@ -55,7 +56,7 @@ public class ReservationService {
 
     public Reservation updateReservationById(Integer id, ReservationDto updateReservationRequest, Integer menuId) {
         Reservation  oldReservation = findReservationById(id);
-        if (updateReservationRequest.getCommentaire() != null && !updateReservationRequest.getCommentaire().isEmpty()) {
+        if (oldReservation != null ) {
             Menu menu = menuRepository.findById(menuId).orElseThrow(()
                     -> new IllegalArgumentException("Le menu n'existe pas"));
             oldReservation.setMenuClient(menu);
@@ -64,6 +65,7 @@ public class ReservationService {
             oldReservation.setNombreClient(updateReservationRequest.getNombreClient());
             oldReservation.setEtat(updateReservationRequest.getEtat());
         }
+        assert oldReservation != null;
         return  reservationRepository.save(oldReservation);
     }
 
