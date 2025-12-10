@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launcher",
+            "request": "launch",
+            "mainClass": "be.FeastOrd.javafx.Launcher",
+            "projectName": "javafx-hello"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "be.FeastOrd.javafx.App",
+            "projectName": "javafx-hello"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-FeastOrdApplication<FeastOrd>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -12,11 +26,11 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-App<javafx-hello>",
+            "name": "Spring Boot-App<FeastOrdfx>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "be.condorcet.javafx.App",
-            "projectName": "javafx-hello",
+            "projectName": "FeastOrdfx",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
