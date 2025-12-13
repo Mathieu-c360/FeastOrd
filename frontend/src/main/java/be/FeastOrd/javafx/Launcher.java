@@ -1,9 +1,6 @@
-package be.FeastOrd.javafx; // Vérifie que c'est le même package que App.java
-
+package be.FeastOrd.javafx; 
+//on doit utiliser ce fichier pour démarrer car java est tres stricte et  à cause de l'extension dans app ça ne peut pas fonctionner
 public class Launcher {
-    
-    // Cette méthode main est "bête", elle ne fait qu'appeler l'autre.
-    // Mais ça suffit pour tromper Java et faire marcher le programme !
     public static void main(String[] args) {
         App.main(args);
     }

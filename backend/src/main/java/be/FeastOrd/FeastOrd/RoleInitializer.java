@@ -5,20 +5,24 @@ import be.FeastOrd.FeastOrd.repository.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-@Configuration
+// ce fichier permet d'éviter une erreur qui empêcherait un utilisateur de s'inscrire car au départ la table de rôle peut être vide en rôle
+@Configuration // démarre ce fichier en priorité car c'est une configuration
 public class RoleInitializer {
 
     @Bean
-    public CommandLineRunner initRoles(RoleRepository roleRepository) {
+    public CommandLineRunner initRoles(RoleRepository roleRepository) 
+    { //ne s'éxecute qu'une seule fois au démarrage
         return args -> {
-            if (roleRepository.findByRole(TypeRole.CLIENT).isEmpty()) {
+            if (roleRepository.findByRole(TypeRole.CLIENT).isEmpty()) 
+                {
                 roleRepository.save(new Role(TypeRole.CLIENT));
             }
-            if (roleRepository.findByRole(TypeRole.GESTIONNAIRE).isEmpty()) {
+            if (roleRepository.findByRole(TypeRole.GESTIONNAIRE).isEmpty())
+            {
                 roleRepository.save(new Role(TypeRole.GESTIONNAIRE));
             }
-            if (roleRepository.findByRole(TypeRole.UTILISATEUR).isEmpty()) {
+            if (roleRepository.findByRole(TypeRole.UTILISATEUR).isEmpty()) 
+            {
                 roleRepository.save(new Role(TypeRole.UTILISATEUR));
             }
         };

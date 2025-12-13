@@ -13,7 +13,7 @@ public class Utilisateur{
     private String motDePasse;
     @ManyToOne 
     @JoinColumn(name = "role_id", nullable = false) // Clé étrangère vers la table Role
-    private Role role; // Un seul objet Role
+    private Role role; 
     public Utilisateur(){}
     public Utilisateur(String nom,String prenom,String mail,String motDePasse)
     {
