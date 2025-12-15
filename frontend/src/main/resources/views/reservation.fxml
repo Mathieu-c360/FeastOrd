@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.feastord.feastord.frontend.controller.ReservationController">
+
+    <!-- Navigation -->
+    <fx:include source="navbar.fxml"/>
+
+    <HBox spacing="20">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- ================= COLONNE GAUCHE ================= -->
+        <VBox spacing="12" prefWidth="420">
+
+            <Label text="Réserver un menu"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <Label fx:id="restaurantLabel"
+                   text="Restaurant sélectionné"/>
+
+            <Label text="Menu :" />
+            <ComboBox fx:id="menuComboBox"
+                      promptText="Choisir un menu"/>
+
+            <Label text="Date :" />
+            <DatePicker fx:id="datePicker"/>
+
+            <Label text="Heure :" />
+            <ComboBox fx:id="heureComboBox"
+                      promptText="Choisir une heure"/>
+
+            <Label text="Nombre de personnes :" />
+            <Spinner fx:id="nombreClientSpinner"/>
+
+            <Label text="Commentaire :" />
+            <TextArea fx:id="commentaireField"
+                      prefRowCount="3"/>
+
+            <Button text="Confirmer la réservation"
+                    onAction="#confirmerReservation"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+
+            <Button text="Retour"
+                    onAction="#retour"/>
+
+        </VBox>
+
+        <!-- ================= COLONNE DROITE ================= -->
+        <VBox spacing="10" prefWidth="300"
+              style="-fx-border-color: #ccc; -fx-padding: 10;">
+
+            <Label text="Détails du menu"
+                   style="-fx-font-weight: bold;"/>
+
+            <Label fx:id="menuDetailsLabel"
+                   wrapText="true"
+                   text="Sélectionnez un menu pour voir les détails"/>
+
+            <Label fx:id="entreeLabel"/>
+            <Label fx:id="platLabel"/>
+            <Label fx:id="dessertLabel"/>
+
+
+        </VBox>
+
+    </HBox>
+</VBox>

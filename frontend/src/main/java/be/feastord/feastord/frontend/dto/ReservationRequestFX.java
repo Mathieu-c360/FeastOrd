@@ -1,6 +1,9 @@
 package be.feastord.feastord.frontend.dto;
 
+import lombok.Data;
+
 import java.util.Date;
+
 
 public class ReservationRequestFX {
 

@@ -59,7 +59,9 @@ public class RestaurantService {
         oldRestaurant.setEtoiles(restaurantDto.getEtoiles());
         oldRestaurant.setRue(restaurantDto.getRue());
         oldRestaurant.setCodePostal(restaurantDto.getCodePostal());
-
+       return restaurantRepository.save(oldRestaurant);
     }
+
+
 
 }

@@ -1,0 +1,8 @@
+.list-cell {
+    -fx-padding: 10;
+}
+
+.button {
+    -fx-background-color: #2E8B57;
+    -fx-text-fill: white;
+}

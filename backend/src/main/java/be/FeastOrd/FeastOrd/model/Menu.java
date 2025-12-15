@@ -1,4 +1,5 @@
 package be.FeastOrd.FeastOrd.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ public class Menu{
     private int id;
 
     @ManyToOne
+    @JsonIgnore
     private Restaurant restaurant;
 
     @ManyToOne

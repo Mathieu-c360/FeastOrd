@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.feastord.feastord.frontend.controller.RestaurantListController">
+
+    <fx:include source="navbar.fxml"/>
+
+    <VBox spacing="15">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <Label text="Liste des restaurants"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <TextField fx:id="searchField"
+                   promptText="Rechercher un restaurant par nom..."/>
+
+        <ListView fx:id="restaurantListView"/>
+    </VBox>
+
+</VBox>

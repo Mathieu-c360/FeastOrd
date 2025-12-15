@@ -1,4 +1,5 @@
 package be.FeastOrd.FeastOrd.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,5 +21,6 @@ public class Restaurant{
     private String rue;
     private int codePostal;
     @ManyToOne
+    @JsonIgnore
     private Utilisateur utilisateur;
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.feastord.feastord.frontend.controller.NavBarController"
+      spacing="15"
+      style="-fx-background-color: #2E8B57;">
+
+    <padding>
+        <Insets top="10" right="15" bottom="10" left="15"/>
+    </padding>
+
+    <Button text="Restaurants"
+            onAction="#goToRestaurants"
+            style="-fx-background-color: white;"/>
+
+    <Button text="Mes réservations"
+            onAction="#goToMesReservations"
+            style="-fx-background-color: white;"/>
+
+</HBox>

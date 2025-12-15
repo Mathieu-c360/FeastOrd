@@ -2,6 +2,7 @@ package be.FeastOrd.FeastOrd.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -27,9 +28,10 @@ public class Reservation{
 
     @Enumerated(EnumType.STRING)
     private EtatReservation etat;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+
+    private LocalDate date;
+
+    private String heure;
 
 
 }
