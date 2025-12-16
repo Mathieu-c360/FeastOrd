@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="be.FeastOrd.Frontend.controller.MainController"
+            stylesheets="@../css/styles.css">
+    
+    <top>
+        <VBox>
+            <HBox styleClass="header-box" alignment="CENTER_LEFT">
+                <Label text="FeastOrd" styleClass="app-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Restaurants" fx:id="btnRestaurants" onAction="#showRestaurants" styleClass="nav-button"/>
+                <Button text="Menus" fx:id="btnMenus" onAction="#showMenus" styleClass="nav-button"/>
+                <Button text="Réservations" fx:id="btnReservations" onAction="#showReservations" styleClass="nav-button"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <BorderPane fx:id="mainPane">
+            <center>
+                <VBox alignment="CENTER" spacing="20">
+                    <Label text="Bienvenue dans FeastOrd" styleClass="welcome-title"/>
+                    <Label text="Sélectionnez une section dans le menu ci-dessus" styleClass="welcome-subtitle"/>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
+    
+</BorderPane>

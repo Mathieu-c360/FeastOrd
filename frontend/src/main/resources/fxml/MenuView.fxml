@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.FeastOrd.Frontend.controller.MenuController"
+      spacing="20"
+      styleClass="content-pane">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Gestion des Menus" styleClass="section-title"/>
+    
+    <HBox spacing="10">
+        <Label text="Filtrer par restaurant:"/>
+        <ComboBox fx:id="comboRestaurant" prefWidth="200"/>
+        <Button text="Filtrer" fx:id="btnFiltrer" onAction="#filtrerMenus" styleClass="action-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Actualiser" fx:id="btnActualiser" onAction="#actualiserMenus" styleClass="action-button"/>
+    </HBox>
+    
+    <TableView fx:id="menuTable" styleClass="data-table">
+        <columns>
+            <TableColumn text="ID" fx:id="colMenuId" prefWidth="50"/>
+            <TableColumn text="Restaurant" fx:id="colRestaurant" prefWidth="300"/>
+        </columns>
+    </TableView>
+    
+    <Separator/>
+    
+    <Label text="Formulaire" styleClass="form-title"/>
+    
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" prefWidth="150"/>
+            <ColumnConstraints minWidth="200" prefWidth="300" hgrow="ALWAYS"/>
+        </columnConstraints>
+        
+        <Label text="Restaurant:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="comboRestaurantForm" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="300"/>
+        
+        <Label text="Entrée:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="comboEntree" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="300"/>
+        
+        <Label text="Plat:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="comboRepas" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="300"/>
+        
+        <Label text="Dessert:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="comboDessert" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="300"/>
+    </GridPane>
+    
+    <HBox spacing="10">
+        <Button text="Ajouter" fx:id="btnAjouter" onAction="#ajouterMenu" styleClass="primary-button"/>
+        <Button text="Modifier" fx:id="btnModifier" onAction="#modifierMenu" styleClass="secondary-button"/>
+        <Button text="Supprimer" fx:id="btnSupprimer" onAction="#supprimerMenu" styleClass="danger-button"/>
+    </HBox>
+    
+</VBox>

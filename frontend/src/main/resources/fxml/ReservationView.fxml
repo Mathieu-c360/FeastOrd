@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.FeastOrd.Frontend.controller.ReservationController"
+      spacing="20"
+      styleClass="content-pane">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Gestion des Réservations" styleClass="section-title"/>
+    
+    <HBox spacing="10">
+        <Label text="Filtrer par restaurant:"/>
+        <ComboBox fx:id="comboRestaurant" prefWidth="200"/>
+        <Label text="État:"/>
+        <ComboBox fx:id="comboEtat" prefWidth="150"/>
+        <Button text="Filtrer" fx:id="btnFiltrer" onAction="#filtrerReservations" styleClass="action-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Actualiser" fx:id="btnActualiser" onAction="#actualiserReservations" styleClass="action-button"/>
+    </HBox>
+    
+    <TableView fx:id="reservationTable" styleClass="data-table">
+        <columns>
+            <TableColumn text="ID" fx:id="colId" prefWidth="50"/>
+            <TableColumn text="Restaurant" fx:id="colRestaurant" prefWidth="200"/>
+            <TableColumn text="Nom Client" fx:id="colNomClient" prefWidth="150"/>
+            <TableColumn text="Nombre" fx:id="colNombreClient" prefWidth="80"/>
+            <TableColumn text="État" fx:id="colEtat" prefWidth="120"/>
+            <TableColumn text="Date" fx:id="colDate" prefWidth="150"/>
+            <TableColumn text="Commentaire" fx:id="colCommentaire" prefWidth="300"/>
+        </columns>
+    </TableView>
+    
+    <Separator/>
+    
+    <HBox spacing="10">
+        <Button text="Accepter" fx:id="btnAccepter" onAction="#accepterReservation" styleClass="primary-button" disable="true"/>
+        <Button text="Refuser" fx:id="btnRefuser" onAction="#refuserReservation" styleClass="danger-button" disable="true"/>
+    </HBox>
+    
+</VBox>
