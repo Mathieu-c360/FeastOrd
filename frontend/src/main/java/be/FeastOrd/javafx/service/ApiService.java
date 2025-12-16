@@ -2,11 +2,11 @@ package be.FeastOrd.javafx.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
-import java.net.URLEncoder;
+
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,28 +101,31 @@ public class ApiService {
     {
         try 
         {
-            //On prépare les paramètres pour l'URL 
-            String mailEncode = URLEncoder.encode(mail, StandardCharsets.UTF_8);
-            String mdpEncode = URLEncoder.encode(mdp, StandardCharsets.UTF_8);
+  
+            Map<String, String> data = new HashMap<>();
+            data.put("mail", mail);
+            data.put("motDePasse", mdp);
 
-            //On construit l'URL complète avec les paramètres
-            String urlComplete = BACKEND_URL + "/login?mail=" + mailEncode + "&motDePasse=" + mdpEncode;
+            String json = mapper.writeValueAsString(data); // Conversion en texte JSON
 
+    
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(urlComplete))
-                    .header("Content-Type", "application/json") 
-                    .GET() 
+                    .uri(URI.create(BACKEND_URL + "/login")) 
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json)) // On envoie le JSON
                     .build();
 
-            // 4. Envoi
-            System.out.println("Envoi GET vers : " + urlComplete);
+     
+            System.out.println("Envoi POST vers : " + request.uri());
+            System.out.println("Données envoyées : " + json); // Utile pour vérifier
+            
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
                 System.out.println("Connexion réussie : " + response.body());
                 return true;
             } else {
-                System.out.println("Echec connexion (" + response.statusCode() + ")");
+                System.out.println("Echec connexion (" + response.statusCode() + ") : " + response.body());
                 return false;
             }
 

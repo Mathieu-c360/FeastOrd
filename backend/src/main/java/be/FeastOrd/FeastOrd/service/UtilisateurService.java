@@ -5,7 +5,6 @@ import be.FeastOrd.FeastOrd.model.Role;
 import be.FeastOrd.FeastOrd.repository.UtilisateurRepository;
 import be.FeastOrd.FeastOrd.repository.RoleRepository;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 @Service
 public class UtilisateurService {

@@ -157,7 +157,7 @@ public class App extends Application {
                     resultatFormulaire.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
                     nom.clear(); prenom.clear(); mail.clear(); motDePasse.clear();
                 } else {
-                    resultatFormulaire.setText("Erreur serveur ou email existant.");
+                    resultatFormulaire.setText("format email incorrecte ou email existant.");
                     resultatFormulaire.setStyle("-fx-text-fill: red;");
                 }
             }

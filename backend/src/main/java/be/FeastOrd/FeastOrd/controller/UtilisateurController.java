@@ -41,7 +41,10 @@ public class UtilisateurController {
     }
     
     public static class LoginRequest {
+        @NotBlank(message = "Le mail est obligatoire")
         public String mail;
+
+        @NotBlank(message = "Le mot de passe est obligatoire")
         public String motDePasse;
     }
 
@@ -71,10 +74,10 @@ public class UtilisateurController {
         }
     }
     
-    @GetMapping("/login")
-    public ResponseEntity<?> connecter(@RequestParam String mail,@RequestParam String motDePasse)
+    @PostMapping("/login")
+    public ResponseEntity<?> connecter(@Valid @RequestBody LoginRequest request)
     {
-        Utilisateur u = utilisateurService.connecterUtilisateur(mail, motDePasse);
+        Utilisateur u = utilisateurService.connecterUtilisateur(request.mail, request.motDePasse);
         if (u != null) 
         {
             return ResponseEntity.ok(u);
