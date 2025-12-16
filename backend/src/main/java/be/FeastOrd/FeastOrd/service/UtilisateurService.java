@@ -26,11 +26,9 @@ public class UtilisateurService {
             throw new IllegalArgumentException("Un compte avec ce mail existe déjà.");
         }
         Utilisateur nouvelUtilisateur = new Utilisateur(nom, prenom, mail, motDePasse);
-        Optional<Role> roleOpt = roleRepository.findByRole(typeRole); //on cherche le  rôle
-        if (!roleOpt.isPresent()) {
-            throw new RuntimeException("Rôle non trouvé en base de données : " + typeRole);
-        }      
-        nouvelUtilisateur.setRole(roleOpt.get());
+        Role role = roleRepository.findByRole(typeRole)
+            .orElseThrow(() -> new RuntimeException("Rôle non trouvé : " + typeRole));
+        nouvelUtilisateur.setRole(role);
         return utilisateurRepository.save(nouvelUtilisateur); //pour enregistrer définitivement le rôle
     }
     
