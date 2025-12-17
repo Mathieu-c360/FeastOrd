@@ -1,35 +1,29 @@
 package be.FeastOrd.FeastOrd.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import be.FeastOrd.FeastOrd.model.Menu;
+import be.FeastOrd.FeastOrd.model.Restaurant;
 import be.FeastOrd.FeastOrd.repository.MenuRepository;
+import be.FeastOrd.FeastOrd.repository.RestaurantRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class MenuService {
+
     private final MenuRepository menuRepository;
+    private final RestaurantRepository restaurantRepository;
 
-    public MenuService(MenuRepository menuRepository) {
+    public MenuService(MenuRepository menuRepository,
+                       RestaurantRepository restaurantRepository) {
         this.menuRepository = menuRepository;
+        this.restaurantRepository = restaurantRepository;
     }
 
-    // Récupérer tous les menus
-    public List<Menu> findAllMenus() {
-        return menuRepository.findAll();
-    }
+    public List<Menu> getMenusByRestaurant(Integer restaurantId) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId)
+                .orElseThrow(() -> new IllegalArgumentException("Restaurant introuvable"));
 
-    // Récupérer un menu par son ID
-    public Optional<Menu> findMenuById(Integer id) {
-        return menuRepository.findById(id);
-    }
-
-    // Enregistrer ou mettre à jour un menu
-    public Menu saveMenu(Menu menu) {
-        return menuRepository.save(menu);
-    }
-
-    // Supprimer un menu
-    public void deleteMenu(Integer id) {
-        menuRepository.deleteById(id);
+        return menuRepository.findByRestaurant(restaurant);
     }
 }

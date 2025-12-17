@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="be.feastord.feastord.frontend.controller.ModifierReservationController"
+      spacing="12"
+      alignment="CENTER"
+      style="-fx-padding: 25;">
+
+    <Label text="Modifier la réservation"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10">
+        <Label text="Date :" />
+        <DatePicker fx:id="datePicker"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Heure :" />
+        <ComboBox fx:id="heureComboBox"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Nombre de personnes :" />
+        <Spinner fx:id="nombreClientSpinner"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Commentaire :" />
+        <TextArea fx:id="commentaireField" prefRowCount="3"/>
+    </HBox>
+
+    <Button text="Enregistrer"
+            onAction="#enregistrerModification"
+            style="-fx-font-size: 15px; -fx-background-color: #3498db; -fx-text-fill: white;" />
+
+    <Button text="Retour"
+            onAction="#retour"
+            style="-fx-background-color: #bdc3c7;" />
+
+</VBox>

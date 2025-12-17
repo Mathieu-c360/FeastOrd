@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.feastord.feastord.frontend.controller.MesReservationsController"
+      spacing="15"
+      alignment="CENTER"
+      style="-fx-padding: 20;">
+
+    <fx:include source="navbar.fxml"/>
+
+    <Label text="Mes réservations"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <ListView fx:id="reservationListView"
+              prefWidth="900"
+              prefHeight="400"/>
+
+</VBox>
